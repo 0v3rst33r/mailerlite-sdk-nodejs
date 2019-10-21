@@ -1,7 +1,7 @@
 {
-  "name": "mailerlite.js",
-  "version": "0.5.0",
-  "description": "Node.js wrapper for MailerLite API.",
+  "name": "mailerlite-mailerlite",
+  "version": "0.5.1",
+  "description": "Node.js wrapper for MailerLite API, supporting versions 1 and 2",
   "main": "index.js",
   "scripts": {
     "make:docs": "jsdoc -c jsdoc.json . -R README.md -d .docs",
