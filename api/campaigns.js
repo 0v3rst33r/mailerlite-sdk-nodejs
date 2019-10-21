@@ -14,7 +14,7 @@ function Campaigns (client) {
    * @param {number} [page] - You can navigate through records by increasing page number.
    */
   this.getAll = (limit, page) => {
-    return client.Get('/campaigns/', {
+    return client.Get('/campaigns', {
       limit: limit,
       page: page
     })

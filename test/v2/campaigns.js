@@ -4,17 +4,14 @@
 
 var expect = require('expect.js')
 
-var MailerLite = require('..')
-var ML = new MailerLite()
+var MailerLite = require('../..')
+var ML = new MailerLite(2)
 
-describe('v1 - Campaigns', () => {
+describe('v2 - Campaigns', () => {
   it('should return an array', (done) => {
     ML.Campaigns.getAll()
       .then((data) => {
-        expect(data).to.have.property('Page')
-        expect(data.Page).to.be.equal(1)
-        expect(data).to.have.property('Results')
-        expect(data.Results).to.be.an('array')
+        expect(data).to.be.an('array')
         done()
       })
       .catch((error) => {
