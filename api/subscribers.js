@@ -11,14 +11,14 @@ function Subscribers (client) {
   /**
    * Adds a subscriber to an existing list, including custom field data if supplied.
    * If the email address is already subscribed, their name and any custom field values are updated with whatever is passed in.
-   * @param {number} list_id - The ID of the list to which the subscriber should be added.
+   * @param {number} listId - The ID of the list to which the subscriber should be added.
    * @param {string} email - The email of the subscriber.
    * @param {string} name - Name of the subscriber.
    * @param {object[]} fields - Array of custom fields of the subscriber.
    * @param {boolean} resubscribe - Sets to true if you want to reactive subscriber.
    */
-  this.addSubscriber = (list_id, email, name, fields, resubscribe) => {
-    return client.Post(`/subscribers/${list_id}/`, {
+  this.addSubscriber = (listId, email, name, fields, resubscribe) => {
+    return client.Post(`/subscribers/${listId}/`, {
       email: email,
       name: name,
       fields: fields,
@@ -29,13 +29,13 @@ function Subscribers (client) {
   /**
    * Allows you to add many subscribers to a list in one request, including custom field data if supplied.
    * If an email addresses are already subscribed, their name and any custom field values are updated with whatever is passed in.
-   * @param {number} list_id - The ID of the list to which the subscriber should be added.
+   * @param {number} listId - The ID of the list to which the subscriber should be added.
    * @param {object[]} subscribers - Array of subscribers.
    * @param {boolean} resubscribe - Sets to true if you want to reactive subscribers.
    */
-  this.addManySubscribers = (list_id, subscribers, resubscribe) => {
-    return client.Post(`/subscribers/${list_id}/import`, {
-      id: list_id,
+  this.addManySubscribers = (listId, subscribers, resubscribe) => {
+    return client.Post(`/subscribers/${listId}/import`, {
+      id: listId,
       subscribers: subscribers,
       resubscribe: resubscribe ? 1 : 0
     })
@@ -55,13 +55,11 @@ function Subscribers (client) {
 
   /**
    * Removes subscriber from a list. He will no longer receive campaigns sent to this list.
-   * @param {number} list_id - The ID of the list to which the subscribed should be removed.
+   * @param {number} listId - The ID of the list to which the subscribed should be removed.
    * @param {string} email - The email of the subscriber.
    */
-  this.deleteSubscriber = (list_id, email) => {
-    return client.Delete(`/subscribers/${list_id}`, {
-      email: email
-    })
+  this.deleteSubscriber = (listId, email) => {
+    return client.Delete(`/subscribers/${listId}?email=${email}`)
   }
 
   /**

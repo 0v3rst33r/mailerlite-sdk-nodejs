@@ -14,7 +14,7 @@ function Lists (client) {
    * @param {number} [page] - You can navigate through records by increasing page number.
    */
   this.getAll = (limit, page) => {
-    return client.Get('/lists/', {
+    return client.Get('/lists', {
       limit: limit,
       page: page
     })

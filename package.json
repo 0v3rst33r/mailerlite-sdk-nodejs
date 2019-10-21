@@ -1,6 +1,6 @@
 {
-  "name": "mailerlite",
-  "version": "0.4.0",
+  "name": "mailerlite.js",
+  "version": "0.5.0",
   "description": "Node.js wrapper for MailerLite API.",
   "main": "index.js",
   "scripts": {
@@ -9,33 +9,33 @@
     "test": "npm run test:coveralls && npm run test:lint",
     "test:lint": "standard",
     "test:mocha": "mocha --timeout 10000",
-    "test:istanbul": "istanbul cover _mocha --report lcovonly -- -R spec --timeout 10000",
+    "test:istanbul": "istanbul cover _mocha --report lcovonly -- -R spec --timeout 10000 \"./test/**/*.js\"",
     "test:coveralls": "npm run test:istanbul && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fmoliveira/mailerlite-sdk-nodejs.git"
+    "url": "git+https://github.com/0v3rst33r/mailerlite-sdk-nodejs.git"
   },
   "keywords": [
     "mailerlite",
     "email",
     "marketing"
   ],
-  "author": "Filipe Oliveira <contato@fmoliveira.com.br>",
+  "author": "0v3rst33r <0v3rst33r@0v3rst33r.info>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fmoliveira/mailerlite-sdk-nodejs/issues"
+    "url": "https://github.com/0v3rst33r/mailerlite-sdk-nodejs/issues"
   },
-  "homepage": "https://github.com/fmoliveira/mailerlite-sdk-nodejs#readme",
+  "homepage": "https://github.com/0v3rst33r/mailerlite-sdk-nodejs#readme",
   "devDependencies": {
-    "coveralls": "^2.11.8",
+    "coveralls": "^3.0.7",
     "expect.js": "^0.3.1",
-    "istanbul": "^0.4.2",
-    "jsdoc": "^3.4.0",
-    "mocha": "^2.3.3",
-    "standard": "^6.0.7"
+    "istanbul": "^0.4.5",
+    "jsdoc": "^3.6.3",
+    "mocha": "^6.2.2",
+    "standard": "^14.3.1"
   },
   "dependencies": {
-    "request": "^2.65.0"
+    "request": "^2.88.0"
   }
 }

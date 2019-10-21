@@ -10,7 +10,7 @@ var ML = new MailerLite()
 const LIST_NAME = 'Mocha Test'
 const LIST_RENAME = 'Mocha Test After Rename'
 
-describe('Lists', () => {
+describe('v1 - Lists', () => {
   it('should return an array', (done) => {
     ML.Lists.getAll()
       .then((data) => {
@@ -79,19 +79,19 @@ describe('Lists', () => {
   })
 
   it('should return no active subscribers for a new list', (done) => {
-    let list_id = 0
+    let listId = 0
 
     ML.Lists.addList(LIST_NAME)
       .then((data) => {
-        list_id = data.id
-        return ML.Lists.getActiveSubscribers(list_id)
+        listId = data.id
+        return ML.Lists.getActiveSubscribers(listId)
       })
       .then((data) => {
         expect(data).to.have.property('Page')
         expect(data.Page).to.be.equal(1)
         expect(data).to.have.property('Results')
         expect(data.Results).to.be.an('array')
-        return ML.Lists.removeList(list_id)
+        return ML.Lists.removeList(listId)
       })
       .then(() => {
         done()
@@ -99,19 +99,19 @@ describe('Lists', () => {
   })
 
   it('should return no unsubscribed subscribers for a new list', (done) => {
-    let list_id = 0
+    let listId = 0
 
     ML.Lists.addList(LIST_NAME)
       .then((data) => {
-        list_id = data.id
-        return ML.Lists.getUnsubscribedSubscribers(list_id)
+        listId = data.id
+        return ML.Lists.getUnsubscribedSubscribers(listId)
       })
       .then((data) => {
         expect(data).to.have.property('Page')
         expect(data.Page).to.be.equal(1)
         expect(data).to.have.property('Results')
         expect(data.Results).to.be.an('array')
-        return ML.Lists.removeList(list_id)
+        return ML.Lists.removeList(listId)
       })
       .then(() => {
         done()
@@ -119,19 +119,19 @@ describe('Lists', () => {
   })
 
   it('should return no bounced subscribers for a new list', (done) => {
-    let list_id = 0
+    let listId = 0
 
     ML.Lists.addList(LIST_NAME)
       .then((data) => {
-        list_id = data.id
-        return ML.Lists.getBouncedSubscribers(list_id)
+        listId = data.id
+        return ML.Lists.getBouncedSubscribers(listId)
       })
       .then((data) => {
         expect(data).to.have.property('Page')
         expect(data.Page).to.be.equal(1)
         expect(data).to.have.property('Results')
         expect(data.Results).to.be.an('array')
-        return ML.Lists.removeList(list_id)
+        return ML.Lists.removeList(listId)
       })
       .then(() => {
         done()

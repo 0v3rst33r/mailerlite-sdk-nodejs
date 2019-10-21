@@ -1,19 +1,19 @@
 # MailerLite SDK for Node.js
 
-## **DISCLAIMER: The MailerLite API has been upgraded with breaking changes, making this library deprecated. This project is not maintained anymore because I've quit using MailerLite.**
+#### **Many thanks to Filipe Oliveira for the API v1 implementation which this fork was created from.**
 
 [![NPM package][nodei-image]][nodei-url]
 [![NPM package][npm-image]][npm-url]
 [![Travis Build][travis-image]][travis-url]
 [![Travis Build][coveralls-image]][coveralls-url]
 
-Node.js wrapper for MailerLite API.
+Node.js wrapper for MailerLite API, supporting versions 1 and 2.
 
 ## Usage
 
 Install with npm: `npm install --save mailerlite`.
 
-Browse your lists:
+### Browse your lists (API v1):
 
 ```js
 var MailerLite = require('mailerlite');
@@ -24,7 +24,18 @@ ML.Lists.getAll()
   });
 ```
 
-Browse the [documentation](http://fmoliveira.com.br/mailerlite-sdk-nodejs/) to read more.
+### Browse your groups ( API v2):
+
+```js
+var MailerLite = require('mailerlite');
+var ML = new MailerLite(apiKey, 2);
+ML.Groups.getAll()
+  .then(function(data) {
+    console.log(data);
+  });
+```
+
+Refer to the test cases for more detail.
 
 ## Compatibility
 
@@ -32,8 +43,9 @@ All methods will return promises.
 
 ## Documentation
 
-* Module documentation: http://fmoliveira.com.br/mailerlite-sdk-nodejs/
-* API documentation: https://docs.mailerlite.com/
+* API documentation:
+  * [v1](https://docs.mailerlite.com)  
+  * [v2](https://developers.mailerlite.com/reference)  
 
 ## License
 MIT.

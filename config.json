@@ -1,3 +1,4 @@
 {
-	"url": "https://app.mailerlite.com/api/v1"
+	"urlApiV1": "https://app.mailerlite.com/api/v1",
+	"urlApiV2": "https://api.mailerlite.com/api/v2"
 }
