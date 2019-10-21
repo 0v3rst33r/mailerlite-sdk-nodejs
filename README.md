@@ -11,7 +11,9 @@ Node.js wrapper for MailerLite API, supporting versions 1 and 2.
 
 ## Usage
 
-Install with npm: `npm install --save mailerlite`.
+Install with npm: `npm install --save mailerlite-mailerlite`.
+
+_Terrible name, I know, but needed to get uniqueness :)_
 
 ### Browse your lists (API v1):
 
